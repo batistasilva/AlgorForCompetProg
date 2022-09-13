@@ -4,3 +4,5 @@ nbproject
 .dep.inc
 *.o
 .gitignore~
+/CppAppDoublyLinkedList/build/
+/CppAppDoublyLinkedList/dist/
