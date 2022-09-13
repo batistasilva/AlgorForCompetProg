@@ -2,7 +2,13 @@
 /* 
  * File:   main.cpp
  * Author: batista
- *
+   echo "# AlgorForCompetProg" >> README.md
+   git init
+   git add README.md
+   git commit -m "first commit"
+   git branch -M main
+   git remote add origin git@github.com:batistasilva/AlgorForCompetProg.git
+   git push -u origin main
  * Created on 13 de setembro de 2022, 11:41
  */
 
