@@ -1,3 +1,2 @@
 # AlgorForCompetProg
-# AlgorForCompetProg
-# AlgorForCompetProg
+
