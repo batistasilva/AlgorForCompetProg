@@ -17,29 +17,31 @@ using namespace std;
 int main(int argc, char** argv) {
 
     // Add two elements at the end of the list
-    pushBack(5);
-    pushBack(7);
-    printList();
+    pushBack(1);
+    pushBack(2);
+    pushBack(3);
+    pushBack(4);
+   // printList();
 
     // Removes the last element
-    popBack();
-    printList();
+  //  popBack();
+  //  printList();
 
     // Removes the last element and the list is empty
-    popBack();
-    printList();
+ //   popBack();
+ //   printList();
 
     // Add five elements at the top of the list
-    pushFront(6);
-    pushFront(8);
-    pushFront(3);
-    pushFront(1);
-    pushFront(4);
+    pushFront(5);
+//    pushFront(8);
+//    pushFront(3);
+//    pushFront(1);
+//    pushFront(4);
     printList();
 
     // Removes the last element and the two first elements popBack();
     popFront();
-    popFront();
+    popBack();
     printList();
 
     return 0;

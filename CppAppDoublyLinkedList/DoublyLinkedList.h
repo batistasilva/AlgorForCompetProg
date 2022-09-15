@@ -31,20 +31,26 @@ public:
 Node *head = NULL;
 Node *tail = NULL;
 
+void printList();
+
 /**
- * Let t be the current tail. When we add an element to the back of
+ * Let it be the current tail. When we add an element to the back of
  * the list, the new node becomes the tail with its prev link pointing
- * to t, and the next link of t pointing to the new tail.
+ * to it, and the next link of it pointing to the new tail.
  * @param val
  */
 void pushBack(int val) {
     Node *newNode = new Node(val, NULL, NULL);
+    //
+    printList();
+    //
     if (tail == NULL) {
-        head = newNode;
+        head = newNode; //head has the newNode
     } else {
-        newNode->prev = tail;
-        tail->next = newNode;
+        newNode->prev = tail; //prev link pointing to tail
+        tail->next = newNode; //next has newNode
     }
+    //Now tail is updated with the newNode, that was updated with prev and next. 
     tail = newNode;
 }
 
@@ -56,12 +62,19 @@ void pushBack(int val) {
  */
 void pushFront(int val) {
     Node *newNode = new Node(val, NULL, NULL);
+    //
+    printList();
+
+    newNode->next = head;
+    head->prev = newNode;
+
     if (head == NULL) {
         tail = newNode;
     } else {
         newNode->next = head;
         head->prev = newNode;
     }
+    //
     head = newNode;
 }
 
@@ -72,12 +85,16 @@ void pushFront(int val) {
  */
 void popFront() {
     if (head != NULL) {
-        Node *nextNode = head->next;
+        Node *nextNode = head->next; //Save the next node from head
+        //
         if (nextNode != NULL) {
-            nextNode->prev = NULL;
+            nextNode->prev = NULL; //Clean previous node from head
         }
-        delete (head);
-        head = nextNode;
+
+        delete (head); //Delete all head  
+
+        head = nextNode; //Set the nextNode saved to head.  
+        //That is the way to remove node on the head.
         if (head == NULL) {
             tail = NULL;
         }
@@ -91,12 +108,15 @@ void popFront() {
  */
 void popBack() {
     if (tail != NULL) {
-        Node *prevNode = tail->prev;
+        Node *prevNode = tail->prev; //Save previous node from tail
         if (prevNode != NULL) {
-            prevNode->next = NULL;
+            prevNode->next = NULL; //Clean Next node from tail
         }
-        delete (tail);
-        tail = prevNode;
+        //
+        delete (tail); //Delete all tail
+        //
+        tail = prevNode; //Set the prevNode saved to tail. 
+        //That is the way to remove node on the tail.
         if (tail == NULL) {
             head = NULL;
         }
@@ -110,18 +130,17 @@ void popBack() {
  */
 void printList() {
     Node *curNode = head;
-    if (curNode == NULL) {
-        printf("-- empty list --\n");
-        return;
+    if (curNode == NULL) {//whether is NULL, is because the list is empty
+        cout << "[      Empty List      ]" << endl;
+        return; //return to the caller
     }
-    while (curNode != NULL) {
-        printf("%d", curNode->val);
-        curNode = curNode->next;
-        if (curNode != NULL) {
-            printf(" -> ");
-        }
+
+    while (curNode != NULL) { //Run the loop while there is a node with content...
+        cout << "Actual curNode->val..: " << curNode->val << endl;
+        //
+        curNode = curNode->next; //Pointing to next node
     }
-    printf("\n");
+    cout << endl;
 }
 
 #endif /* DOUBLYLINKEDLIST_H */
